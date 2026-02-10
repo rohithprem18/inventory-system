@@ -1,0 +1,291 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", sans-serif;
+  --bg: #f6f4ef;
+  --card: #ffffff;
+  --ink: #1c1c1c;
+  --muted: #6a6a6a;
+  --accent: #1b7f6b;
+  --accent-strong: #0e594b;
+  --danger: #c0392b;
+  --border: #e3ddd4;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #f1efe9, #f8f7f2);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav__brand a {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav__links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav__links a {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.nav__links a:hover {
+  border-color: var(--border);
+}
+
+.nav__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page.auth {
+  align-items: center;
+}
+
+.page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(27, 127, 107, 0.2);
+  border-color: var(--accent);
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn--danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.alert--error {
+  background: rgba(192, 57, 43, 0.12);
+  color: var(--danger);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tag {
+  background: rgba(27, 127, 107, 0.12);
+  color: var(--accent-strong);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap {
+  gap: 24px;
+}
+
+.form__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.table__row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.6fr 0.8fr 0.9fr 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.table__head {
+  font-weight: 600;
+  background: #f4f2ee;
+}
+
+.table__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.table__empty {
+  padding: 12px;
+  color: var(--muted);
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status--expired {
+  color: var(--danger);
+}
+
+.status--expiring {
+  color: #d35400;
+}
+
+.status--safe {
+  color: var(--accent-strong);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .table__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+  }
+
+  .table__head {
+    display: none;
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 20px;
+  }
+}
